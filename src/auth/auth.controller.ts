@@ -5,15 +5,17 @@
 /* eslint-disable prettier/prettier */
 import { Controller, Post } from '@nestjs/common';
 import { Body, Delete, Req, UseGuards } from '@nestjs/common/decorators';
-import { SignupDto } from './dto/signupDto';
-import { SigninDto } from './dto/signinDto';
-import { ResetPasswordDemandDto } from './dto/resetPasswordDemandDto';
-import { ResetPasswordConfirmationDto } from './dto/resetPasswordConfirmationDto';
+import { SignupDto } from './dto/signup.dto';
+import { SigninDto } from './dto/signin.dto';
+import { ResetPasswordDemandDto } from './dto/resetPasswordDemand.dto';
+import { ResetPasswordConfirmationDto } from './dto/resetPasswordConfirmation.dto';
 import { AuthService } from './auth.service';
 import { AuthGuard } from '@nestjs/passport';
 import { Request } from 'express';
-import { DeleteAccountDto } from './dto/deleteAccountDto';
+import { DeleteAccountDto } from './dto/deleteAccount.dto';
+import { ApiTags } from '@nestjs/swagger' ;
 
+@ApiTags("Authentication")
 @Controller('auth')
 export class AuthController {
   constructor(private readonly authService : AuthService) {}
